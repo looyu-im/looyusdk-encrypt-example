@@ -15,15 +15,7 @@ public class EncryptHelper {
     private static final String UTF8 = "UTF-8";
     private static final String AES = "AES";
     private static final String AES_CBC_PADDING = "AES/CBC/PKCS5Padding";
-    private static IvParameterSpec iv;
 
-    static {
-        try {
-            iv = new IvParameterSpec(HEX.getBytes(UTF8));
-        } catch (Exception ex) {
-
-        }
-    }
 
 
 
@@ -42,7 +34,7 @@ public class EncryptHelper {
     private static byte[] encodeDecode(int mode, byte[] bytes, String key) {
         try {
             Cipher cipher = Cipher.getInstance(AES_CBC_PADDING);
-            cipher.init(mode, generateKey(key), iv);
+            cipher.init(mode, generateKey(key), new IvParameterSpec(HEX.getBytes(UTF8)));
             return cipher.doFinal(bytes);
 
         } catch (Exception e) {

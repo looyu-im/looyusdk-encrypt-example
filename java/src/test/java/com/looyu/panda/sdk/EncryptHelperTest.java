@@ -15,7 +15,6 @@ public class EncryptHelperTest {
     public void encode() throws Exception {
 
         String encrypted = EncryptHelper.encode(textToEncrypt, key);
-        System.out.println(encrypted);
         Assert.assertEquals(encryptedText, encrypted);
     }
 
