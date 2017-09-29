@@ -6,14 +6,16 @@ import org.junit.Test;
 import java.util.UUID;
 
 public class EncryptHelperTest {
-    private String textToEncrypt = "将要加密的字符串";
+    private String textToEncrypt = "将要加密的字符";
     private String key ="5dd69f95-a82a-4b01-b6c1-a2d2f8f8061b";
-    private String encryptedText = "neD0iV1eFLpIy4/F1XHFEh0bTP6bqV7HfChE9sbPsPk=";
+    private String encryptedText = "neD0iV1eFLpIy4/F1XHFEomEfx2kV/EPMg+edO9TU/8=";
+    //private String encryptedText = "neD0iV1eFLpIy4/F1XHFEmzZZWjaTA4JuQ7VdlWRTro=";
 
     @Test
     public void encode() throws Exception {
 
         String encrypted = EncryptHelper.encode(textToEncrypt, key);
+        System.out.println(encrypted);
         Assert.assertEquals(encryptedText, encrypted);
     }
 
