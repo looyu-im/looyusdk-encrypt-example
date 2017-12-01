@@ -1,15 +1,15 @@
 package looyu_sdk
 
 import (
+	"bytes"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/md5"
-	"io"
-	"bytes"
 	"encoding/base64"
+	"io"
 )
 
-const HEX string = "0123456789ABCDEF";
+const HEX string = "0123456789ABCDEF"
 
 func Encrypt(plainText string, key string) (string, error) {
 	h := md5.New()
@@ -41,7 +41,7 @@ func Decrypt(encrypted string, key string) (string, error) {
 		return "", err
 	}
 	encryptedBytes, err := base64.StdEncoding.DecodeString(encrypted)
-	if (err != nil) {
+	if err != nil {
 		return "", err
 	}
 
@@ -50,7 +50,7 @@ func Decrypt(encrypted string, key string) (string, error) {
 	ecb.CryptBlocks(decryptedBytes, encryptedBytes)
 
 	decryptedBytes = PKCS5Trimming(decryptedBytes)
-	return string(decryptedBytes[:]),nil
+	return string(decryptedBytes[:]), nil
 }
 func PKCS5Padding(ciphertext []byte, blockSize int) []byte {
 	padding := blockSize - len(ciphertext)%blockSize
@@ -62,5 +62,3 @@ func PKCS5Trimming(encrypt []byte) []byte {
 	padding := encrypt[len(encrypt)-1]
 	return encrypt[:len(encrypt)-int(padding)]
 }
-
-

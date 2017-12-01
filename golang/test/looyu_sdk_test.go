@@ -1,8 +1,8 @@
-package main
+package test
 
 import (
+	"../src/looyu_sdk"
 	"testing"
-	"looyu_sdk"
 )
 
 func TestEncryptHelper(t *testing.T) {
