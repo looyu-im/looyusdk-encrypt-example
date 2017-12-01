@@ -17,6 +17,8 @@ class TestEncryptHelper(unittest.TestCase):
         encrypted = EncryptHelper.encrypt(textToEncrypt,key)
         print(encrypted)
         self.assertEqual(encryptedText,encrypted)
+
+
     def testDecrypt(self):
         plain = EncryptHelper.decrypt(encryptedText,key)
         print(plain)
