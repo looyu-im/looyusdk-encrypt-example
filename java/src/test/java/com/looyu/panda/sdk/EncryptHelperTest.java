@@ -24,6 +24,9 @@ public class EncryptHelperTest {
     public void decode() throws Exception {
         String blankText = EncryptHelper.decode(encryptedText, key);
         Assert.assertEquals(textToEncrypt, blankText);
+
+        String test="suqkH4wvafV94QFhIjbBk3eTB8T1Uc9sE0Ez+medUu8W++KdbohO6pF0mY4JQTibERuDQZf+WOLydvs+RaKlRw==";
+        System.out.println(EncryptHelper.decode(test,"ec0c9d8c9a2b4162ab09da7d476e0cad"));
     }
 
 }
