@@ -3,7 +3,6 @@ package com.looyu.panda.sdk;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.UUID;
 
 public class EncryptHelperTest {
     private String textToEncrypt = "将要加密的字符";
